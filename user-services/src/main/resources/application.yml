@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc://localhost:3306/microservices
+    username: root
+    password: root
+
+
+server:
+  port: 8081
