@@ -1,44 +1,48 @@
-package com.gk.userservices.controller;
+package com.gk.ratingsservices.controller;
 
-import com.gk.userservices.entity.User;
-import com.gk.userservices.services.UserServices;
+import com.gk.ratingsservices.entity.Ratings;
+import com.gk.ratingsservices.services.RatingsServices;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
-public class UserController {
+@RequestMapping("/ratings")
+public class RatingsController {
 
-    private static Logger log = LoggerFactory.getLogger(UserController.class);
+    private static Logger log = LoggerFactory.getLogger(RatingsController.class);
     @Autowired
-    private UserServices userServices;
+    private RatingsServices RatingsServices;
 
     @PostMapping
-    public ResponseEntity<User> saveUser(@RequestBody User user){
-        User user1 = userServices.saveUser(user);
-        log.info("User Details Saved Successfully");
-        return ResponseEntity.ok(user1);
+    public ResponseEntity<Ratings> saveRatings(@RequestBody Ratings Ratings){
+        Ratings Ratings1 = RatingsServices.saveRating(Ratings);
+        log.info("Ratings Details Saved Successfully");
+        return ResponseEntity.ok(Ratings1);
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> getAllUsers (){
-        List<User> allUsersList = userServices.getAllUsers();
-        log.info("All Users Details Fetched Successfully");
-        return ResponseEntity.ok(allUsersList);
+    public ResponseEntity<List<Ratings>> getAllRatingss (){
+        List<Ratings> allRatingssList = RatingsServices.getAllRatings();
+        log.info("All Ratingss Details Fetched Successfully");
+        return ResponseEntity.ok(allRatingssList);
     }
 
-    @GetMapping("/{userId}")
-    public ResponseEntity<User> getUserById(@PathVariable String userId){
-        User user1 = userServices.getUserById(userId);
-        log.info("User Details Fetched Successfully");
-        return ResponseEntity.ok(user1);
+    @GetMapping("getbyuserid/{userId}")
+    public ResponseEntity<List<Ratings>> getRatingByUserId(@PathVariable String userId){
+        List<Ratings> Ratings1 = RatingsServices.getByUserId(userId);
+        log.info("Ratings Details Fetched Successfully");
+        return ResponseEntity.ok(Ratings1);
+    }
+    @GetMapping("getbyhotelid/{hotelId}")
+    public ResponseEntity<List<Ratings>> getRatingByHotelId(@PathVariable String hotelId){
+        List<Ratings> Ratings1 = RatingsServices.getByHotelId(hotelId);
+        log.info("Ratings Details Fetched Successfully");
+        return ResponseEntity.ok(Ratings1);
     }
 
 }

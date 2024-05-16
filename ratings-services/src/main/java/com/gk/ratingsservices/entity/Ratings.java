@@ -1,26 +1,28 @@
-package com.gk.userservices.entity;
+package com.gk.ratingsservices.entity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "user")
-public class User {
+@Table(name = "ratings")
+public class Ratings {
     @Id
-    @Column(name = "ID")
-    private String userid;
+    private String ratingId;
 
-    @Column(name = "Name", length = 20)
-    private String userName;
+    private String userId;
 
-    @Column(name = "Email")
-    private String email;
+    private String hotelId;
+
+    private int rating;
+    private String feedback;
 
 }

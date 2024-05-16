@@ -1,4 +1,4 @@
-package com.gk.userservices.payload;
+package com.gk.hotelservices.payload;
 
 import lombok.*;
 import org.springframework.http.HttpStatus;

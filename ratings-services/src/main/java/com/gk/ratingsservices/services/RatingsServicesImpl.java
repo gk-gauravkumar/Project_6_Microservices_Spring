@@ -1,32 +1,36 @@
 package com.gk.ratingsservices.services;
 
-import com.gk.userservices.entity.User;
-import com.gk.userservices.repository.UserRepository;
+import com.gk.ratingsservices.entity.Ratings;
+import com.gk.ratingsservices.repository.RatingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.UUID;
 
 @Service
-public class UserServicesImpl implements UserServices {
+public class RatingsServicesImpl implements RatingsServices {
 
     @Autowired
-    private UserRepository userRepository;
+    private RatingsRepository ratingsRepository;
     @Override
-    public User saveUser(User user) {
-        String randomUserId = UUID.randomUUID().toString();
-        user.setUserid(randomUserId);
-        return userRepository.save(user);
+    public Ratings saveRating(Ratings ratings) {
+        String randomRatingId = UUID.randomUUID().toString();
+        ratings.setRatingId(randomRatingId);
+        return ratingsRepository.save(ratings);
     }
 
     @Override
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<Ratings> getAllRatings() {
+        return ratingsRepository.findAll();
+    }
+
+        @Override
+    public List<Ratings> getByUserId(String userId) {
+        return ratingsRepository.findByUserId(userId);
     }
 
     @Override
-    public User getUserById(String userId) {
-        return userRepository.findById(userId).orElseThrow(() -> new RuntimeException("User Not found with the given id : "+userId));
+    public List<Ratings> getByHotelId(String hotelId) {
+        return ratingsRepository.findByHotelId(hotelId);
     }
 }
