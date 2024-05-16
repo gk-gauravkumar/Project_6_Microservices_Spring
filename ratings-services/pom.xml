@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.gk</groupId>
-	<artifactId>user-services</artifactId>
+	<artifactId>ratings-services</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>user-services</name>
-	<description>User Services API, I will have Users records and all operation to perform on User. It will be called as USER -SERVICE.</description>
+	<name>ratings-services</name>
+	<description>Rating Services API, I will have Rating records and all operation to perform on Rating. It will be called as RATINGS -SERVICE.</description>
 	<properties>
 		<java.version>17</java.version>
 		<spring-cloud.version>2023.0.1</spring-cloud.version>
@@ -37,8 +37,8 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.mysql</groupId>
-			<artifactId>mysql-connector-j</artifactId>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
