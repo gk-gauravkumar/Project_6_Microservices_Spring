@@ -1,15 +1,19 @@
 package com.gk.ratingsservices.services;
 
-import com.gk.userservices.entity.User;
+import com.gk.ratingsservices.entity.Ratings;
 
 import java.util.List;
 
-public interface UserServices {
+public interface RatingsServices {
 
-    User saveUser(User user);
+    Ratings saveRating(Ratings ratings);
 
-    List<User> getAllUsers ();
+    List<Ratings> getAllRatings ();
 
-    User getUserById(String userId);
+    List<Ratings> getByUserId(String userId);
+
+    List<Ratings> getByHotelId(String hotelId);
+
+
 
 }
