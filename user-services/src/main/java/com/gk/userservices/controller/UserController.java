@@ -34,6 +34,14 @@ public class UserController {
         return ResponseEntity.ok(allUsersList);
     }
 
+    @DeleteMapping("/{userId}")
+    public ResponseEntity<String> delete(@PathVariable String userId){
+        User user1 = userServices.getUserById(userId);
+        log.info("User Details Fetched Successfully");
+        userServices.delete(userId);
+        return ResponseEntity.ok("Deleted");
+    }
+
     @GetMapping("/{userId}")
     public ResponseEntity<User> getUserById(@PathVariable String userId){
         User user1 = userServices.getUserById(userId);
