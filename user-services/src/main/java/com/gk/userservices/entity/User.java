@@ -1,10 +1,10 @@
 package com.gk.userservices.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,5 +22,8 @@ public class User {
 
     @Column(name = "Email")
     private String email;
+
+    @Transient
+    private List<Rating> Ratings = new ArrayList<Rating>();
 
 }
