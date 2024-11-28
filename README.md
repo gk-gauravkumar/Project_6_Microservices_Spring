@@ -1,4 +1,4 @@
-# Project_6_Microservices_Spring
+# Project 6 Cross Platform API Management Project in Spring Boot        Role: Developer        Solo Project
 Demo Project of Microservices.
 I have created 3 seperated REST APIs
               a. USER - SERVICES            -> built using MySQL Database
